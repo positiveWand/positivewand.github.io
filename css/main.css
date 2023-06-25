@@ -1,0 +1,22 @@
+html {
+    font-family: 'Noto Sans KR';
+}
+body {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar {
+    background-color: lightgray;
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: gray; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: lightgray;  /*스크롤바 뒷 배경 색상*/
+}

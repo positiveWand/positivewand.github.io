@@ -1,0 +1,11 @@
+.site-footer {
+    background-color: rgb(75,185,236);
+    color: white;
+    min-height: 50px;
+
+    display: flex;
+    
+}
+.site-footer div {
+    margin: auto;
+}

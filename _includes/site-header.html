@@ -1,0 +1,38 @@
+<header class="site-header">
+    <div class="header-wrapper">
+            <div class="header-logo-container">
+                <a href="/">
+                    <img src="/assets/archive.png" alt="로고 이미지">
+                    <h1>Positive Arch.</h1>
+                </a>
+            </div>
+            <nav class="header-content-info">
+                <ol>
+                    {% assign path = "/" %}
+                    {% assign categoryPath = include.categories | join: ' ' | prepend: 'home ' | split: ' ' %}
+                    {% for aCat in  categoryPath %}
+                        <li>
+                            {% if forloop.first == false %}
+                                {% assign path = path | append: aCat | append: '/' %}
+                            {% endif %}
+                            <a href="{{ path }}">
+                                {{ aCat | capitalize }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+                <h1>포스트 제목 더 긴 제목 하나둘</h1>
+            </nav>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/intro/">Intro</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/tags/">Tags</a></li>
+                </ul>
+                <button class="header-hamburger">
+                    <img src="/assets/hamburger.svg" alt="카테고리 버튼">
+                </button>
+            </nav>
+        </div>
+</header>

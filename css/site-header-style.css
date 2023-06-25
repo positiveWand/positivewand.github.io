@@ -1,0 +1,147 @@
+.site-header {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 6rem;
+
+    padding: 0 2rem;
+}
+
+.header-logo-container {
+    font-size: 0.7rem;
+}
+.header-logo-container a {
+    display: flex;
+    align-items: center;
+}
+.header-logo-container a, .header-logo-container a:visited, .header-logo-container a:active {
+    color: black;
+    text-decoration: none;
+}
+.header-logo-container a:hover {
+    color: rgb(75,185,236)
+}
+.header-logo-container img {
+    width: 2rem;
+    height: 2rem;
+}
+.header-logo-container h1 {
+    margin-left: 0.5rem;
+}
+
+.header-content-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 25rem;
+
+    visibility: hidden;
+}
+.header-content-info ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    font-size: 1rem;
+}
+.header-content-info li {
+    display: inline;
+}
+.header-content-info li a {
+    text-decoration: none;
+    padding: 2px 4px;
+    border-radius: 5px;
+    color: gray;
+}
+.header-content-info li a:hover {
+    background-color: rgba(75,185,236, 0.2);
+}
+.header-content-info li a:active {
+    background-color: rgba(75,185,236, 0.4);
+}
+.header-content-info li::after {
+    content: "/";
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.header-content-info li:last-child::after {
+    content: "";
+}
+.header-content-info h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+}
+.header-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+}
+.header-nav li {
+    display: inline;
+}
+.header-nav li a {
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    color: black;
+}
+.header-nav li a:hover {
+    background-color: rgba(75,185,236, 0.2);
+}
+.header-nav li a:active {
+    background-color: rgba(75,185,236, 0.4);
+}
+
+.header-hamburger {
+    display: none;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+}
+.header-hamburger:hover {
+    background-color: rgba(75,185,236, 0.2);
+}
+.header-hamburger:active {
+    background-color: rgba(75,185,236, 0.4);
+}
+.header-hamburger img {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+}
+
+@media (max-width: 60rem) {
+    .header-content-info {
+        display: none;
+    }
+
+    .header-nav > ul {
+        display: none;
+    }
+
+    .header-hamburger {
+        display: block;
+    }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Postive Archive
+        {%- if page.title -%}
+            {{- page.title | prepend: ' - ' -}}
+        {%- endif %}
+    </title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/site-header-style.css">
+    <link rel="stylesheet" href="/css/site-sidebar-style.css">
+    <link rel="stylesheet" href="/css/site-footer-style.css">
+    <link rel="stylesheet" href="/css/site-body-style.css">
+    <link rel="stylesheet" href="/css/spacing.css">
+</head>
+<body>
+    {% include site-header.html categories=page.categories %}
+    <div class="site-body">
+        {% include site-sidebar.html %}
+        <main class="page-content-wrapper">
+            <button class="sidebar-show-btn">
+                <img src="/assets/hamburger.svg" alt="">
+            </button>
+            {{ content }}
+        </main>
+    </div>
+    {% include site-footer.html %}
+</body>
+<script src="/script/script.js"></script>
+</html>

@@ -1,0 +1,100 @@
+<div class="sidebar-wrapper">
+    <nav class="sidebar">
+        <header class="sidebar-header">
+            <h2>Category</h2>
+            <button>
+                <img src="/assets/left-arrow.svg" alt="">
+            </button>
+        </header>
+        <div class="sidebar-top-nav">
+            <a href="/">
+                <img src="/assets/home.svg" alt="홈 사진">
+                <h3>Home</h3>
+            </a>
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <details>
+                    <summary>카테고리1</summary>
+                    <ul>
+                        <li>
+                            <details>
+                                <summary>카테고리1-1</summary>
+                                <ul>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-1-1</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-1-2</a>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>카테고리1-2</summary>
+                                <ul>
+                                    <li class="sidebar-nav-item">
+                                        <a class="sidebar-nav-selected" href="">카테고리1-2-1</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-2-1</a>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>카테고리1</summary>
+                    <ul>
+                        <li>
+                            <details>
+                                <summary>카테고리1-1</summary>
+                                <ul>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-1-1</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-1-2</a>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>카테고리1-2</summary>
+                                <ul>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-2-1</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-2-1</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-2-1</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="">카테고리1-2-1</a>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            {% assign home_category = site.data.category_structure | where: 'name', 'home' | first %}
+            {% for cat_name in home_category["subcategory"] %}
+                {% assign aCategory = site.data.category_structure | where: 'name', cat_name | first %}
+                {% if aCateogry["subcategory"] == empty %}
+                    {% assign isLeaf = true %}
+                {% else %}
+                    {% assign isLeaf = false %}
+                {% endif %}
+                {% include sidebar-category-item.html name=cat_name subcategories=aCategory["subcategory"] leaf=isLeaf %}
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

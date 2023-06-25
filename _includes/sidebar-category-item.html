@@ -1,0 +1,28 @@
+<li>
+    <details>
+        <summary>{{ include.name }}</summary>
+        <ul>
+            {% if include.leaf %} %}
+                {% for aPost in site.categories[include.name] %}
+                    <li class="sidebar-nav-item">
+                        <a href="{{ aPost.url }}">{{ aPost.title }}</a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                {% for aCategory in include.subcategories %}
+                    <li>
+                        <details>
+                            <summary>{{ include.name }}</summary>
+                            <ul>
+                                {% assign subcategories = site.data.category_structure | where: 'name', include.name | first %}
+                                {% for aSubcategory in subcategories %}
+                                    {% include sidebar-category-item.html name=aSubcategory['name'] subcategories=aSubcategory["subcategory"] leaf=false %}
+                                {% endfor %}
+                            </ul>
+                        </details>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </details>
+</li>

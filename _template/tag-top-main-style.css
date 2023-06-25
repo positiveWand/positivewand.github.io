@@ -1,0 +1,92 @@
+.tag-top-content-wrapper {
+    flex: 1;
+    min-width: 100vh;
+}
+.tag-top-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 1rem;
+
+    max-width: 900px;
+}
+.tag-top-content > header {
+    display: inline-flex;
+    flex-direction: column;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.tag-top-content > header ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    font-size: 1rem;
+}
+.tag-top-content > header > ol > li {
+    display: inline;
+}
+.tag-top-content > header > ol a {
+    text-decoration: none;
+    padding: 2px 4px;
+    border-radius: 5px;
+    color: gray;
+}
+.tag-top-content > header > ol a:hover {
+    background-color: rgba(75,185,236, 0.2);
+}
+.tag-top-content > header > ol li a:active {
+    background-color: rgba(75,185,236, 0.4);
+}
+.tag-top-content > header > ol li::after {
+    content: "/";
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.tag-top-content > header > ol li:last-child::after {
+    content: "";
+}
+.tag-top-content > header h1 {
+    margin: 0;
+
+    font-size: 3.5rem;
+}
+.tag-top-content > header p {
+    margin: 1rem 0;
+}
+.tag-top-content-body {
+    flex-basis: calc(100vh - 6rem);
+}
+.tag-top-content-body h2 {
+    font-size: 2.5rem;
+}
+
+.tag-top-content-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    list-style: none;
+    margin: 0;
+    margin-top: 1rem;
+    padding: 0;
+
+    font-size: 1rem;
+}
+.tag-top-content-list li {
+    border-radius: 8px;
+    background-color: rgba(75,185,236);
+
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.tag-top-content-list li:hover {
+    opacity: 50%;
+}
+.tag-top-content-list a {
+    text-decoration: none;
+    color: white;
+}
