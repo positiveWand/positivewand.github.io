@@ -24,9 +24,9 @@ layout: default
             <span>{{ page.date | date: "%Y-%m-%d"}}</span>
         </div>
         <ul class="tag-list">
-            <li><a href="">태그1</a></li>
-            <li><a href="">태그2</a></li>
-            <li><a href="">태그3</a></li>
+            {% for aTag in page.tags %}
+                <li><a href="/tags/{{ aTag }}/">{{ aTag }}</a></li>
+            {% endfor %}
         </ul>
     </header>
     <div class="page-content-body post-content-body">
