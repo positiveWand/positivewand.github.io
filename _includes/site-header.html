@@ -9,7 +9,7 @@
             <nav class="header-content-info">
                 <ol>
                     {% assign path = "/" %}
-                    {% assign categoryPath = include.categories | join: ' ' | prepend: 'home ' | split: ' ' %}
+                    {% assign categoryPath = include.path | join: ' ' | prepend: 'home ' | split: ' ' %}
                     {% for aCat in  categoryPath %}
                         <li>
                             {% if forloop.first == false %}
@@ -21,7 +21,7 @@
                         </li>
                     {% endfor %}
                 </ol>
-                <h1>포스트 제목 더 긴 제목 하나둘</h1>
+                <h1>{{ page.title }}</h1>
             </nav>
             <nav class="header-nav">
                 <ul>

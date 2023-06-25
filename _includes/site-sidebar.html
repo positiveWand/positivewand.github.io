@@ -13,87 +13,15 @@
             </a>
         </div>
         <ul class="sidebar-nav">
-            <li>
-                <details>
-                    <summary>카테고리1</summary>
-                    <ul>
-                        <li>
-                            <details>
-                                <summary>카테고리1-1</summary>
-                                <ul>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-1-1</a>
-                                    </li>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-1-2</a>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                            <details>
-                                <summary>카테고리1-2</summary>
-                                <ul>
-                                    <li class="sidebar-nav-item">
-                                        <a class="sidebar-nav-selected" href="">카테고리1-2-1</a>
-                                    </li>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-2-1</a>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                    </ul>
-                </details>
-            </li>
-            <li>
-                <details>
-                    <summary>카테고리1</summary>
-                    <ul>
-                        <li>
-                            <details>
-                                <summary>카테고리1-1</summary>
-                                <ul>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-1-1</a>
-                                    </li>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-1-2</a>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                            <details>
-                                <summary>카테고리1-2</summary>
-                                <ul>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-2-1</a>
-                                    </li>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-2-1</a>
-                                    </li>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-2-1</a>
-                                    </li>
-                                    <li class="sidebar-nav-item">
-                                        <a href="">카테고리1-2-1</a>
-                                    </li>
-                                </ul>
-                            </details>
-                        </li>
-                    </ul>
-                </details>
-            </li>
-            {% assign home_category = site.data.category_structure | where: 'name', 'home' | first %}
-            {% for cat_name in home_category["subcategory"] %}
+            {% assign categories = site.data.category_structure | where: 'name', 'home' | first %}
+            {% for cat_name in categories["subcategory"] %}
                 {% assign aCategory = site.data.category_structure | where: 'name', cat_name | first %}
-                {% if aCateogry["subcategory"] == empty %}
-                    {% assign isLeaf = true %}
+                {% if page.categories[0] == aCategory["name"] %}
+                    {% assign open = true %}
                 {% else %}
-                    {% assign isLeaf = false %}
+                    {% assign open = false %}
                 {% endif %}
-                {% include sidebar-category-item.html name=cat_name subcategories=aCategory["subcategory"] leaf=isLeaf %}
+                {% include sidebar-category-item.html category_object=aCategory isOpen=open depth=0 %}
             {% endfor %}
         </ul>
     </nav>

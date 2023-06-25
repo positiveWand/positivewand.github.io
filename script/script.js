@@ -66,8 +66,10 @@ for (const aElement of candidate) {
 if (targetElement) {
     let handler = onVisibilityChange(targetElement, () => {
         if(isElementInViewport(targetElement)) {
+            console.log("visible");
             document.querySelector(".header-content-info").style.visibility = "hidden";
         } else {
+            console.log("hidden");
             document.querySelector(".header-content-info").style.visibility = "visible";
         }
     });
@@ -84,5 +86,7 @@ if (targetElement) {
     }
 }
 
-let targetHeight = document.querySelector(".sidebar-nav-selected").offsetTop - document.querySelector(".sidebar").offsetHeight/2;
-document.querySelector(".sidebar").scrollTop = targetHeight >= 0 ? targetHeight : 0;
+if(document.querySelector(".sidebar-nav-selected")) {
+    let targetHeight = document.querySelector(".sidebar-nav-selected").offsetTop - document.querySelector(".sidebar").offsetHeight/2;
+    document.querySelector(".sidebar").scrollTop = targetHeight >= 0 ? targetHeight : 0;
+}

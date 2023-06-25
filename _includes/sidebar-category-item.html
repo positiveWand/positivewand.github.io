@@ -1,26 +1,38 @@
 <li>
-    <details>
-        <summary>{{ include.name }}</summary>
+    <details {% if include.isOpen %}
+        open
+    {% endif %}>
+        <summary>{{ include.category_object["name"] }}</summary>
         <ul>
-            {% if include.leaf %} %}
-                {% for aPost in site.categories[include.name] %}
-                    <li class="sidebar-nav-item">
+            {% assign subcategory_count = include.category_object["subcategory"] | size %}
+            {% if subcategory_count == 0 %}
+                {% assign post_count = site.categories[include.category_object["name"]] | size %}
+                {% if post_count == 0 %}
+                <li class="sidebar-nav-item empty-item">
+                    비어있음
+                </li>
+                {% else %}
+                {% for aPost in site.categories[include.category_object["name"]] %}
+                    {% if aPost.title == page.title %}
+                        {% assign selected = "sidebar-nav-selected" %}
+                    {% else %}
+                        {% assign selected = "" %}
+                    {% endif %}
+                    <li class="sidebar-nav-item {{ selected }}">
                         <a href="{{ aPost.url }}">{{ aPost.title }}</a>
                     </li>
                 {% endfor %}
+                {% endif %}
             {% else %}
-                {% for aCategory in include.subcategories %}
-                    <li>
-                        <details>
-                            <summary>{{ include.name }}</summary>
-                            <ul>
-                                {% assign subcategories = site.data.category_structure | where: 'name', include.name | first %}
-                                {% for aSubcategory in subcategories %}
-                                    {% include sidebar-category-item.html name=aSubcategory['name'] subcategories=aSubcategory["subcategory"] leaf=false %}
-                                {% endfor %}
-                            </ul>
-                        </details>
-                    </li>
+                {% assign new_depth = inlcude.depth | plus: 1  %}
+                {% for cat_name in include.category_object["subcategory"] %}
+                    {% assign aCategory = site.data.category_structure | where: 'name', cat_name | first %}
+                    {% if page.categories[new_depth] == aCategory["name"] %}
+                        {% assign open = true %}
+                    {% else %}
+                        {% assign open = false %}
+                    {% endif %}
+                    {% include sidebar-category-item.html category_object=aCategory isOpen=open %}
                 {% endfor %}
             {% endif %}
         </ul>

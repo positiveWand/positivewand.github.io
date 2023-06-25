@@ -79,7 +79,7 @@
     margin: 0;
 }
 .post-content {
-    max-width: 700px;
+    width: 700px;
     border-right: 2px solid rgb(242,242, 242);
 }
 
@@ -96,11 +96,13 @@
         display: inline-flex;
         flex-direction: column-reverse;
         align-items: stretch;
+        justify-content: flex-end;
         width: 100%;
     }
     .post-content-nav {
         position: relative;
         top: 0;
+        flex-grow: 0;
         margin-left: 0;
         max-width: 100%;
     }
@@ -109,6 +111,7 @@
     }
     .post-content {
         border: none;
+        width: auto;
     }
 }
 
