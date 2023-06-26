@@ -9,7 +9,9 @@ exclude_rule = {
     'blacklist': [
         'assets',
         'css',
-        'script'
+        'script',
+        'category',
+        'tag',
     ]
 }
 
@@ -66,10 +68,45 @@ def scanDir(targetDir, path):
         scanDir(aDir, path+"/"+aDir)
 
 scanDir(".", ".")
-print(category_tree)
+# print(category_tree)
 
 yaml_string= yaml.dump(category_tree, encoding='utf-8', allow_unicode=True)
-print(yaml_string.decode('utf-8'))
+# print(yaml_string.decode('utf-8'))
 
 with open('./_data/category_structure.yml', 'w', encoding="utf-8") as f:
     f.write(yaml_string.decode('utf-8'))
+
+def generate_category_md(object):
+    category_name = object['name']
+    subcategory_list = object['subcategory']
+    result = '---\n'
+    result += 'title: [카테고리] ' + category_name
+    result += '\n'
+    result += 'layout: category'
+    result += '\n'
+    result += 'subcategories: '+ ' '.join(subcategory_list)
+    result += '\n'
+    result += '---\n'
+
+    return result
+
+scan_queue = []
+scan_list = []
+for aDir in category_tree[0]['subcategory']:
+    scan_queue.append("./"+aDir)
+    scan_list.append("./"+aDir)
+
+while len(scan_queue) != 0:
+    targetPath = scan_queue.pop(0)
+    dirName = targetPath.split("/")[-1]
+    # isPostDir = targetPath.split("/")[-1] == '_posts'
+    # parentDir = targetPath.split("/")[-2]
+    with open(targetPath+'/index.md', 'w', encoding="utf-8") as f:
+        doc = generate_category_md(category_tree[index_of_name(category_tree, dirName)])
+        f.write(doc)
+
+    for aDir in category_tree[index_of_name(category_tree, dirName)]['subcategory']:
+        scan_queue.append(targetPath+'/'+aDir)
+        scan_list.append(targetPath+'/'+aDir)
+
+print(scan_list)
