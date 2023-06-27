@@ -12,6 +12,7 @@ exclude_rule = {
         'script',
         'category',
         'tag',
+        'about'
     ]
 }
 
@@ -80,7 +81,7 @@ def generate_category_md(object):
     category_name = object['name']
     subcategory_list = object['subcategory']
     result = '---\n'
-    result += 'title: "[카테고리]-' + category_name + '"'
+    result += 'title: "카테고리: ' + category_name + '"'
     result += '\n'
     result += 'layout: category'
     result += '\n'

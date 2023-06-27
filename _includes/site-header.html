@@ -7,31 +7,11 @@
                 </a>
             </div>
             <nav class="header-content-info">
-                {% if layout.site_layout == 'tag' or layout.site_layout == 'about' %}
+                {% if layout.site_layout == 'post' %}
                     <ol class="path-list">
                         {% assign path = "/" %}
-                        {% assign path_string = page.url %}
-                        {% if page.url | slice: -5, 5 == '.html' %}
-                            {% assign length = page.url | size | minus: 5 %}
-                            {% assign path_string = page.url | slice: 0, length %}
-                        {% endif %}
-                        {% assign categoryPath = path_string | url_decode | prepend: '/Home ' | split: '/' %}
-                        {% for aCat in  categoryPath offset:1 %}
-                            <li>
-                                {% if forloop.first == false %}
-                                    {% assign path = path | append: aCat | append: '/' %}
-                                {% endif %}
-                                <a href="{{ path }}">
-                                    {{ aCat }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                {% elsif layout.site_layout == 'tagmain' %}
-                    <ol class="path-list">
-                        {% assign path = "/" %}
-                        {% assign categoryPath = page.url | url_decode | prepend: '/Home ' | split: '/' %}
-                        {% for aCat in  categoryPath offset:1 %}
+                        {% assign categoryPath = page.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+                        {% for aCat in  categoryPath %}
                             <li>
                                 {% if forloop.first == false %}
                                     {% assign path = path | append: aCat | append: '/' %}
@@ -43,16 +23,16 @@
                         {% endfor %}
                     </ol>
                 {% else %}
-                    <ol>
+                    <ol class="path-list">
                         {% assign path = "/" %}
-                        {% assign categoryPath = include.path | join: ' ' | prepend: 'home ' | split: ' ' %}
+                        {% assign categoryPath = page.url | url_decode | prepend: 'Home' | split: '/'%}
                         {% for aCat in  categoryPath %}
                             <li>
                                 {% if forloop.first == false %}
                                     {% assign path = path | append: aCat | append: '/' %}
                                 {% endif %}
                                 <a href="{{ path }}">
-                                    {{ aCat | capitalize }}
+                                    {{ aCat }}
                                 </a>
                             </li>
                         {% endfor %}

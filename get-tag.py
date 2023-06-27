@@ -36,7 +36,7 @@ with open('./_data/tags.yml', 'w', encoding="utf-8") as f:
 
 def generate_tag_md(tagname):
     result = '---\n'
-    result += 'title: "[태그]-' + tagname + '"'
+    result += 'title: "태그: ' + tagname + '"'
     result += '\n'
     result += 'layout: tag'
     result += '\n'
@@ -48,6 +48,8 @@ def generate_tag_md(tagname):
 
 
 for aTag in tags:
-    with open('./tag/'+aTag+'.md', 'w', encoding="utf-8") as f:
+    if not os.path.exists('./tag/'+aTag+'/index.md'):
+        os.makedirs('./tag/'+aTag)
+    with open('./tag/'+aTag+'/index.md', 'w', encoding="utf-8") as f:
         doc = generate_tag_md(aTag)
         f.write(doc)
