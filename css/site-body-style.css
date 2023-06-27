@@ -74,6 +74,11 @@
 .post-content-nav a:active {
     background-color: rgba(100, 100, 100, 0.3);
 }
+.post-content-nav li.active > a {
+    font-weight: bold;
+    color: rgb(59,129,237);
+    transition: 0.25s ease;
+}
 .post-title {
     font-size: 3rem;
     margin: 0;
