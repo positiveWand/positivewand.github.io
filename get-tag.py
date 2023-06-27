@@ -33,3 +33,21 @@ yaml_string= yaml.dump(sorted(list(tags)), encoding='utf-8', allow_unicode=True)
 
 with open('./_data/tags.yml', 'w', encoding="utf-8") as f:
     f.write(yaml_string.decode('utf-8'))
+
+def generate_tag_md(tagname):
+    result = '---\n'
+    result += 'title: "[태그]-' + tagname + '"'
+    result += '\n'
+    result += 'layout: tag'
+    result += '\n'
+    result += 'tag_name: "' + tagname + '"'
+    result += '\n'
+    result += '---\n'
+
+    return result
+
+
+for aTag in tags:
+    with open('./tag/'+aTag+'.md', 'w', encoding="utf-8") as f:
+        doc = generate_tag_md(aTag)
+        f.write(doc)

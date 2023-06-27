@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+<article class="page-content">
+    <header class="page-content-header pb-1">
+        <ol class="path-list">
+            {% assign path = "/" %}
+            {% assign categoryPath = page.url | url_decode | prepend: '/Home ' | split: '/' %}
+            {% for aCat in  categoryPath offset:1 %}
+                <li>
+                    {% if forloop.first == false %}
+                        {% assign path = path | append: aCat | append: '/' %}
+                    {% endif %}
+                    <a href="{{ path }}">
+                        {{ aCat }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ol>
+        <h1 class="page-title">{{ page.title }}</h1>
+        <details class="sub-categories">
+            <summary><span>하위 카테고리</span></summary>
+            <ul>
+                {% assign category_name = page.category_name %}
+                {% unless page.subcategories == empty %}
+                    {% assign subcategories = page.subcategories | split: " " %}
+                {% else %}
+                    <span>비어있음</span>        
+                {% endunless %}
+                {% for aCat in subcategories %}
+                    <li>
+                        <a href="{{ page.url | append: aCat  }}">
+                            {{ aCat | capitalize }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </details>
+        {% assign introduction = site.data.category_introduction | where: 'name', category_name %}
+        {% if introduction[0] %}
+            <p>
+                {{ introduction[0].introduction }}
+            </p>
+        {% endif %}
+    </header>
+    <div class="page-content-body">
+        <h2 class="page-content-body-title pt-2 pb-1">포스트 ({{ site.categories[page.category_name] | size }})</h2>
+        <ol class="content-list">
+            {% for aPage in site.categories[page.category_name] %}
+                <li>
+                    <a href="{{ aPage.url }}">
+                        <div>
+                            <h3>{{ aPage.title }}</h3>
+                            <span class="content-list-item-date">{{ aPage.date | date: "%Y-%m-%d" }}</span>
+                        </div>
+                        <p>
+                            {{ aPage.excerpt | strip_html | truncatewords: 30 }}
+                        </p>
+                        <ul class="tag-list">
+                            {% for aTag in aPage.tags %}
+                                <li><a href="/tag/{{ aTag }}/">{{ aTag }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </a>
+                </li>
+            {% endfor %}
+            {% assign count = site.categories[page.category_name] | size %}
+            {% if count == 0 %}
+                <li>
+                    해당하는 검색결과가 존재하지 않습니다.
+                </li>
+            {% endif %}
+        </ol>
+        <div class="content-list-navbar">
+        </div>
+    </div>
+</article>

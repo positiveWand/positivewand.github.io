@@ -7,27 +7,64 @@
                 </a>
             </div>
             <nav class="header-content-info">
-                <ol>
-                    {% assign path = "/" %}
-                    {% assign categoryPath = include.path | join: ' ' | prepend: 'home ' | split: ' ' %}
-                    {% for aCat in  categoryPath %}
-                        <li>
-                            {% if forloop.first == false %}
-                                {% assign path = path | append: aCat | append: '/' %}
-                            {% endif %}
-                            <a href="{{ path }}">
-                                {{ aCat | capitalize }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ol>
+                {% if layout.site_layout == 'tag' or layout.site_layout == 'about' %}
+                    <ol class="path-list">
+                        {% assign path = "/" %}
+                        {% assign path_string = page.url %}
+                        {% if page.url | slice: -5, 5 == '.html' %}
+                            {% assign length = page.url | size | minus: 5 %}
+                            {% assign path_string = page.url | slice: 0, length %}
+                        {% endif %}
+                        {% assign categoryPath = path_string | url_decode | prepend: '/Home ' | split: '/' %}
+                        {% for aCat in  categoryPath offset:1 %}
+                            <li>
+                                {% if forloop.first == false %}
+                                    {% assign path = path | append: aCat | append: '/' %}
+                                {% endif %}
+                                <a href="{{ path }}">
+                                    {{ aCat }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                {% elsif layout.site_layout == 'tagmain' %}
+                    <ol class="path-list">
+                        {% assign path = "/" %}
+                        {% assign categoryPath = page.url | url_decode | prepend: '/Home ' | split: '/' %}
+                        {% for aCat in  categoryPath offset:1 %}
+                            <li>
+                                {% if forloop.first == false %}
+                                    {% assign path = path | append: aCat | append: '/' %}
+                                {% endif %}
+                                <a href="{{ path }}">
+                                    {{ aCat }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                {% else %}
+                    <ol>
+                        {% assign path = "/" %}
+                        {% assign categoryPath = include.path | join: ' ' | prepend: 'home ' | split: ' ' %}
+                        {% for aCat in  categoryPath %}
+                            <li>
+                                {% if forloop.first == false %}
+                                    {% assign path = path | append: aCat | append: '/' %}
+                                {% endif %}
+                                <a href="{{ path }}">
+                                    {{ aCat | capitalize }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
                 <h1>{{ page.title }}</h1>
             </nav>
             <nav class="header-nav">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/about/">About</a></li>
-                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/tag/">Tags</a></li>
                 </ul>
                 <button class="header-hamburger">
                     <img src="/assets/hamburger.svg" alt="카테고리 버튼">

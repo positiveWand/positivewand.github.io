@@ -90,3 +90,147 @@ if(document.querySelector(".sidebar-nav-selected")) {
     let targetHeight = document.querySelector(".sidebar-nav-selected").offsetTop - document.querySelector(".sidebar").offsetHeight/2;
     document.querySelector(".sidebar").scrollTop = targetHeight >= 0 ? targetHeight : 0;
 }
+
+const page_content_num = 5;
+
+if(document.querySelector('.content-list')) {
+    let total_content_num = document.querySelector('.content-list').childElementCount;
+    let current_page = Number((new URLSearchParams(window.location.search)).get('page'));
+    if(current_page == 0) {
+        current_page = 1;
+    }
+
+    let contents = Array.from(document.querySelectorAll('.content-list > li'));
+    const start = (current_page - 1) * page_content_num;
+    const end = Math.min(start + page_content_num, total_content_num);
+    contents.slice(start, end).forEach(element => {
+        console.log(element);
+        element.style.removeProperty('display');
+    });
+
+    if (start > total_content_num) {
+        let wrong = document.createElement('li');
+        wrong.innerHTML = '잘못된 접근입니다';
+        document.querySelector('.content-list').appendChild(wrong);
+    }
+}
+
+function createNavButton(type, num, selected) {
+    const newItem = document.createElement('li');
+    const newButton = document.createElement('button');
+    const newSpan = document.createElement('span');
+
+    let total_content_num = document.querySelector('.content-list').childElementCount;
+    const page_num = Math.ceil(total_content_num / page_content_num);
+    let current_page = Number((new URLSearchParams(window.location.search)).get('page'));
+    if(current_page == 0) {
+        current_page = 1;
+    }
+
+    newItem.appendChild(newButton);
+    newButton.appendChild(newSpan);
+
+    switch (type) {
+        case 'number':
+            newSpan.innerHTML = num;
+            if (selected) {
+                newItem.className = 'content-list-navbar-current'
+            } else {
+                newButton.addEventListener('click', () => {
+                    let searchParam = new URLSearchParams(window.location.search.slice());
+                    searchParam.set('page', num);
+                    console.log(searchParam.toString())
+                    location.href = window.location.pathname + "?" + searchParam.toString();
+                })
+            }
+            break;
+        case 'left':
+            newSpan.innerHTML = '&lt;';
+            newButton.addEventListener('click', () => {
+                let searchParam = new URLSearchParams(window.location.search.slice());
+                    searchParam.set('page', current_page - 1);
+                    location.href = window.location.pathname + "?" + searchParam.toString();
+            });
+            if (current_page == 1) {
+                newButton.disabled = true;
+            }
+            break;
+        case 'right':
+            newSpan.innerHTML = '&gt;';
+            newButton.addEventListener('click', () => {
+                let searchParam = new URLSearchParams(window.location.search.slice());
+                    searchParam.set('page', current_page + 1);
+                    location.href = window.location.pathname + "?" + searchParam.toString();
+            });
+            if (current_page == page_num) {
+                newButton.disabled = true;
+            }
+            break;
+        case 'ellipsis':
+            newButton.disabled = true;
+            newSpan.innerHTML = '...';
+            break;
+    }
+
+    return newItem;
+}
+
+if(document.querySelector(".content-list-navbar")) {
+    let navlist = document.createElement('ol');
+    let total_content_num = document.querySelector('.content-list').childElementCount;
+    const page_num = Math.ceil(total_content_num / page_content_num);
+    let current_page = Number((new URLSearchParams(window.location.search)).get('page'));
+    if(current_page == 0) {
+        current_page = 1;
+    }
+
+    console.log(current_page)
+
+    if (page_num == 0) {
+        navlist.appendChild(createNavButton('left'));
+        navlist.appendChild(createNavButton('number', '1', true));
+        navlist.appendChild(createNavButton('right'));
+    } else if (page_num < 10) {
+        navlist.appendChild(createNavButton('left'));
+        for (let i = 1; i <= page_num; i++) {
+            let selected = current_page == i;
+            let item = createNavButton('number', i, selected);
+            navlist.appendChild(item);
+        }
+        navlist.appendChild(createNavButton('right'));
+    } else {
+        navlist.appendChild(createNavButton('left'));
+        if (current_page <= 5) {
+            for (let i = 1; i <= 7; i++) {
+                let selected = current_page == i;
+                let item = createNavButton('number', i, selected);
+                navlist.appendChild(item);
+            }
+            navlist.appendChild(createNavButton('ellipsis'));
+            navlist.appendChild(createNavButton('number', page_num, false));
+        } else if (current_page >= page_num - 4) {
+            navlist.appendChild(createNavButton('number', 1, false));
+            navlist.appendChild(createNavButton('ellipsis'));
+            for (let i = page_num - 6; i <= page_num; i++) {
+                let selected = current_page == i;
+                let item = createNavButton('number', i, selected);
+                navlist.appendChild(item);
+            }
+        } else {
+            navlist.appendChild(createNavButton('number', 1, false));
+            navlist.appendChild(createNavButton('ellipsis'));
+            for (let i = current_page-2; i <= current_page+2; i++) {
+                let selected = current_page == i;
+                let item = createNavButton('number', i, selected);
+                navlist.appendChild(item);
+            }
+            navlist.appendChild(createNavButton('ellipsis'));
+            navlist.appendChild(createNavButton('number', page_num, false));
+        }
+        navlist.appendChild(createNavButton('right'));
+    }
+
+    console.log(navlist)
+    document.querySelector(".content-list-navbar").appendChild(navlist);
+}
+

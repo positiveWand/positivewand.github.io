@@ -12,8 +12,9 @@
                     비어있음
                 </li>
                 {% else %}
-                {% for aPost in site.categories[include.category_object["name"]] %}
-                    {% if aPost.title == page.title %}
+                {% assign posts = site.categories[include.category_object["name"]] | reverse %}
+                {% for aPost in posts %}
+                    {% if aPost.id == page.id %}
                         {% assign selected = "sidebar-nav-selected" %}
                     {% else %}
                         {% assign selected = "" %}

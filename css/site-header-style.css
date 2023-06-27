@@ -76,7 +76,7 @@
     margin-right: 5px;
 }
 .header-content-info li:last-child::after {
-    content: "";
+    display: none;
 }
 .header-content-info h1 {
     width: 100%;

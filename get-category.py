@@ -80,11 +80,16 @@ def generate_category_md(object):
     category_name = object['name']
     subcategory_list = object['subcategory']
     result = '---\n'
-    result += 'title: [카테고리] ' + category_name
+    result += 'title: "[카테고리]-' + category_name + '"'
     result += '\n'
     result += 'layout: category'
     result += '\n'
-    result += 'subcategories: '+ ' '.join(subcategory_list)
+    result += 'category_name: "' + category_name + '"'
+    result += '\n'
+    subcatstring = ' '.join(subcategory_list)
+    if subcatstring == '':
+        subcatstring = '[]'
+    result += 'subcategories: '+ subcatstring
     result += '\n'
     result += '---\n'
 

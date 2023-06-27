@@ -1,0 +1,44 @@
+---
+layout: default
+site_layout: tagmain
+---
+<article class="page-content">
+    <header class="page-content-header pb-1">
+        <ol class="path-list">
+            {% assign path = "/" %}
+            {% assign categoryPath = page.url | url_decode | prepend: '/Home ' | split: '/' %}
+            {% for aCat in  categoryPath offset:1 %}
+                <li>
+                    {% if forloop.first == false %}
+                        {% assign path = path | append: aCat | append: '/' %}
+                    {% endif %}
+                    <a href="{{ path }}">
+                        {{ aCat }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ol>
+        <h1 class="page-title">{{page.title}}</h1>
+        <p>
+            블로그에 존재하는 태그는 다음과 같습니다.
+        </p>
+    </header>
+    <div class="page-content-body">
+        <h2 class="page-content-body-title pt-2 pb-1">목록 ({{ site.data.tags | size }})</h2>
+        <ul class="tag-list">
+            {% for aTag in site.data.tags %}
+                <li>
+                    <a href="{{ '/tag/' | append: aTag | append: '/' }}">
+                        {{ aTag }}
+                    </a>
+                </li>
+            {% endfor %}
+            {% assign count = site.data.tags | size %}
+            {% if count == 0 %}
+                <li>
+                    해당하는 검색결과가 존재하지 않습니다.
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</article>
