@@ -19,12 +19,49 @@ site_layout: home
             {% endfor %}
         </ol>
         <h1 class="post-title">{{ page.title }}</h1>
+        <details class="sub-categories">
+            <summary><span>하위 카테고리</span></summary>
+            <ul>
+                {% assign subcategories = site.data.category_structure | find: 'name', 'home' %}
+                {% assign subcategories = subcategories.subcategory %}
+                {% if subcategories == empty %}
+                    <span>비어있음</span>        
+                {% endif %}
+                {% for aCat in subcategories %}
+                    <li>
+                        <a href="{{ page.url | append: aCat  }}">
+                            {{ aCat }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </details>
+        {% assign introduction = site.data.category_introduction | where: 'name', 'home' %}
+        {% if introduction[0] %}
+            <p>
+                {{ introduction[0].introduction }}
+            </p>
+        {% endif %}
     </header>
     <div class="page-content-body">
-        <h2 class="page-content-body-title pt-2 pb-1">전체 포스트 ({{ site.posts | size }})</h2>
+        <h2 class="page-content-body-title pt-2 pb-1">전체 포스트 <span>({{ site.posts | size }})</span></h2>
         <ol class="content-list">
             {% for aPost in site.posts %}
                 <li style="display: none;">
+                    <ol class="path-list">
+                        {% assign path = "/" %}
+                        {% assign categoryPath = aPost.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+                        {% for aCat in  categoryPath %}
+                            <li>
+                                {% if forloop.first == false %}
+                                    {% assign path = path | append: aCat | append: '/' %}
+                                {% endif %}
+                                <a href="{{ path }}">
+                                    {{ aCat }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
                     <a href="{{ aPost.url }}">
                         <div>
                             <h3>{{ aPost.title }}</h3>

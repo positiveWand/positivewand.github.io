@@ -24,7 +24,7 @@ site_layout: tagmain
         </p>
     </header>
     <div class="page-content-body">
-        <h2 class="page-content-body-title pt-2 pb-1">목록 ({{ site.data.tags | size }})</h2>
+        <h2 class="page-content-body-title pt-2 pb-1">전체 태그 <span>({{ site.data.tags | size }})</span></h2>
         <ul class="tag-list">
             {% for aTag in site.data.tags %}
                 <li>

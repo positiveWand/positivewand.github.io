@@ -26,6 +26,9 @@
     margin: 0;
     font-size: 2rem;
 }
+.page-content-body-title span {
+    color: rgba(100, 100, 100, 0.6);
+}
 
 .post-page-content {
     max-width: 1000px;
@@ -185,16 +188,22 @@
     color: white !important;
 }
 
-.sub-categories:hover {
+.sub-categories > summary:hover {
     cursor: pointer;
 }
 .sub-categories > ul {
     margin: 0;
+    padding-left: 2rem;
 }
 .sub-categories > ul li {
-    margin: 6px 3px;
+    margin: 3px 3px;
+    list-style: none;
+}
+.sub-categories > ul li::marker {
+    content: '┕';
 }
 .sub-categories a {
+    display: block;
     color: black;
     text-decoration: none;
     border-radius: 5px;
@@ -213,11 +222,11 @@
     margin: 0;
     padding: 0;
 }
-.content-list li > a {
+.content-list > li > a {
     text-decoration: none;
     color: black;
 }
-.content-list li > a:hover {
+.content-list > li > a:hover {
     color: rgb(59,129,237);
 }
 .content-list > li {

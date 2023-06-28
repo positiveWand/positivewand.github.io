@@ -6,12 +6,7 @@ site_layout: tag
     <header class="page-content-header pb-1">
         <ol class="path-list">
             {% assign path = "/" %}
-            {% assign path_string = page.url %}
-            {% if page.url | slice: -5, 5 == '.html' %}
-                {% assign length = page.url | size | minus: 5 %}
-                {% assign path_string = page.url | slice: 0, length %}
-            {% endif %}
-            {% assign categoryPath = path_string | url_decode | prepend: '/Home ' | split: '/' %}
+            {% assign categoryPath = page.url | url_decode | prepend: '/Home ' | split: '/' %}
             {% for aCat in  categoryPath offset:1 %}
                 <li>
                     {% if forloop.first == false %}
@@ -26,7 +21,7 @@ site_layout: tag
         <h1 class="page-title">{{ page.title }}</h1>
     </header>
     <div class="page-content-body">
-        <h2 class="page-content-body-title pt-2 pb-1">관련 포스트 ({{ site.tags[page.tag_name] | size }})</h2>
+        <h2 class="page-content-body-title pt-2 pb-1">관련 포스트 <span>({{ site.tags[page.tag_name] | size }})</span></h2>
         <ol class="content-list">
             {% for aPage in site.tags[page.tag_name] %}
                 <li>

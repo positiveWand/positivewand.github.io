@@ -31,7 +31,7 @@ layout: default
                 {% for aCat in subcategories %}
                     <li>
                         <a href="{{ page.url | append: aCat  }}">
-                            {{ aCat | capitalize }}
+                            {{ aCat }}
                         </a>
                     </li>
                 {% endfor %}
@@ -45,7 +45,7 @@ layout: default
         {% endif %}
     </header>
     <div class="page-content-body">
-        <h2 class="page-content-body-title pt-2 pb-1">포스트 ({{ site.categories[page.category_name] | size }})</h2>
+        <h2 class="page-content-body-title pt-2 pb-1">포스트 <span>({{ site.categories[page.category_name] | size }})</span></h2>
         <ol class="content-list">
             {% for aPage in site.categories[page.category_name] %}
                 <li>
