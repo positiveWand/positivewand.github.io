@@ -1,54 +1,56 @@
 <header class="site-header">
     <div class="header-wrapper">
-            <div class="header-logo-container">
-                <a href="/">
-                    <img src="/assets/archive.png" alt="로고 이미지">
-                    <h1>Positive Arch.</h1>
-                </a>
-            </div>
-            <nav class="header-content-info">
-                {% if layout.site_layout == 'post' %}
-                    <ol class="path-list">
-                        {% assign path = "/" %}
-                        {% assign categoryPath = page.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
-                        {% for aCat in  categoryPath %}
-                            <li>
-                                {% if forloop.first == false %}
-                                    {% assign path = path | append: aCat | append: '/' %}
-                                {% endif %}
-                                <a href="{{ path }}">
-                                    {{ aCat }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                {% else %}
-                    <ol class="path-list">
-                        {% assign path = "/" %}
-                        {% assign categoryPath = page.url | url_decode | prepend: 'Home' | split: '/'%}
-                        {% for aCat in  categoryPath %}
-                            <li>
-                                {% if forloop.first == false %}
-                                    {% assign path = path | append: aCat | append: '/' %}
-                                {% endif %}
-                                <a href="{{ path }}">
-                                    {{ aCat }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                {% endif %}
-                <h1>{{ page.title }}</h1>
-            </nav>
-            <nav class="header-nav">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/tag/">Tags</a></li>
-                </ul>
-                <button class="header-hamburger">
-                    <img src="/assets/hamburger.svg" alt="카테고리 버튼">
-                </button>
-            </nav>
+        <div class="header-logo-container">
+            <a href="/">
+                <img src="/assets/archive.png" alt="로고 이미지">
+                <h1>Positive Arch.</h1>
+            </a>
         </div>
+        <nav class="header-content-info">
+            {% if layout.site_layout == 'post' %}
+                <ol class="path-list">
+                    {% assign path = "/" %}
+                    {% assign categoryPath = page.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+                    {% for aCat in  categoryPath %}
+                        <li>
+                            {% if forloop.first == false %}
+                                {% assign path = path | append: aCat | append: '/' %}
+                            {% endif %}
+                            <a href="{{ path }}">
+                                {{ aCat }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <ol class="path-list">
+                    {% assign path = "/" %}
+                    {% assign categoryPath = page.url | url_decode | prepend: 'Home' | split: '/'%}
+                    {% for aCat in  categoryPath %}
+                        <li>
+                            {% if forloop.first == false %}
+                                {% assign path = path | append: aCat | append: '/' %}
+                            {% endif %}
+                            <a href="{{ path }}">
+                                {{ aCat }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+            <h1>{{ page.title }}</h1>
+        </nav>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/about/">Category</a></li>
+                <li><a href="/tag/">Tags</a></li>
+                <li><a href="/about/">Search</a></li>
+            </ul>
+            <button class="header-hamburger">
+                <img src="/assets/hamburger.svg" alt="카테고리 버튼">
+            </button>
+        </nav>
+    </div>
 </header>
