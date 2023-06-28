@@ -20,7 +20,6 @@ site_layout: home
         </ol>
         <h1 class="post-title">{{ page.title }}</h1>
         <details class="sub-categories">
-            <a href="https://www.flaticon.com/free-icons/document" title="document icons">Document icons created by Freepik - Flaticon</a>
             <summary><span>하위 카테고리</span></summary>
             <ul>
                 {% assign subcategories = site.data.category_structure | where: 'name', 'home' %}
