@@ -22,10 +22,8 @@ site_layout: home
         <details class="sub-categories">
             <summary><span>하위 카테고리</span></summary>
             <ul>
-                {{ site.data.category_structure }}
-                {% assign subcategories = site.data.category_structure | find: 'name', 'home' %}
-                {% assign subcategories = subcategories.subcategory %}
-                {{subcategories}}
+                {% assign subcategories = site.data.category_structure | where: 'name', 'home' %}
+                {% assign subcategories = subcategories[0].subcategory %}
                 {% if subcategories == empty %}
                     <span>비어있음</span>        
                 {% endif %}
