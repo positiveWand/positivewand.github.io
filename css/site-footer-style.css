@@ -2,10 +2,35 @@
     background-color: rgb(75,185,236);
     color: white;
     min-height: 50px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
     display: flex;
-    
+    flex-direction: column;
 }
-.site-footer div {
+.site-footer > div {
     margin: auto;
+}
+.site-footer a {
+    color: rgba(100, 100, 100, 0.7);
+    font-size: 12px;
+}
+.footer-logo-container {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.footer-logo-container a:hover {
+    color: rgb(75,185,236)
+}
+.footer-logo-container img {
+    width: 3rem;
+    height: 3rem;
+}
+.footer-logo-container h1 {
+    margin: 0 0 0 0.5rem;
+}
+.footer-logo-text {
+    text-align: center;
 }
