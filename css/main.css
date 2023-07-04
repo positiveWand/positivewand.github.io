@@ -1,3 +1,5 @@
+@import 'native.css';
+
 html {
     font-family: 'Noto Sans KR';
 }
@@ -10,12 +12,12 @@ body {
 
 ::-webkit-scrollbar {
     background-color: lightgray;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
 }
 ::-webkit-scrollbar-thumb {
     background: gray; /* 스크롤바의 색상 */
-    border-radius: 10px;
+    border-radius: 5px;
 }
 ::-webkit-scrollbar-track {
     background: lightgray;  /*스크롤바 뒷 배경 색상*/

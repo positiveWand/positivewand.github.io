@@ -1,0 +1,27 @@
+---
+title: "카테고리: 전체"
+layout: default
+---
+<article class="page-content">
+    <header class="page-content-header pb-1">
+        <ol class="path-list">
+            <li>
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/category/">
+                    category
+                </a>
+            </li>
+        </ol>
+        <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+    <div class="page-content-body">
+        <h2 class="page-content-body-title pt-2 pb-1">카테고리 구조</span></h2>
+        <ul class="category-structure-list">
+            {% include category-structure-item.html category_name='Home' path='/' %}
+        </ul>
+    </div>
+</article>

@@ -26,7 +26,7 @@ layout: default
                 {% unless page.subcategories == empty %}
                     {% assign subcategories = page.subcategories | split: " " %}
                 {% else %}
-                    <span>비어있음</span>        
+                    <span>비어있음</span>
                 {% endunless %}
                 {% for aCat in subcategories %}
                     <li>

@@ -22,7 +22,7 @@ site_layout: home
         <details class="sub-categories">
             <summary><span>하위 카테고리</span></summary>
             <ul>
-                {% assign subcategories = site.data.category_structure | where: 'name', 'home' %}
+                {% assign subcategories = site.data.category_structure | where: 'name', 'Home' %}
                 {% assign subcategories = subcategories[0].subcategory %}
                 {% if subcategories == empty %}
                     <span>비어있음</span>        

@@ -23,9 +23,9 @@ sidebar_hide.addEventListener("click", (event) => {
     document.querySelector(".sidebar-wrapper").style.display = "none";
     document.querySelector(".sidebar-show-btn").style.display = "block";
 })
-let sidebar_hamburger = target = document.querySelector(".sidebar-show-btn");
-target.addEventListener("click", (event) => {
-    document.querySelector(".sidebar-wrapper").style.removeProperty("display");
+let sidebar_hamburger = document.querySelector(".sidebar-show-btn");
+sidebar_hamburger.addEventListener("click", (event) => {
+    document.querySelector(".sidebar-wrapper").style.display = "block";
     document.querySelector(".sidebar-show-btn").style.display = "none";
 })
 
@@ -93,7 +93,7 @@ if(document.querySelector(".sidebar-nav-selected")) {
 
 const page_content_num = 5;
 
-if(document.querySelector('.content-list')) {
+if(document.querySelector('.content-list')  && !document.querySelector('.searchbar')) {
     let total_content_num = document.querySelector('.content-list').childElementCount;
     let current_page = Number((new URLSearchParams(window.location.search)).get('page'));
     if(current_page == 0) {
@@ -273,4 +273,26 @@ if (document.querySelector('.post-content-nav')) {
             activeAnchor.className = 'active';
         }
     });
+}
+
+if (document.querySelector('.searchbar')) {
+    const searchbar = document.querySelector('.searchbar');
+    const posts = Array.from(document.querySelectorAll('.content-list > li'));
+    document.querySelector('.search-result > h2 > span').innerText = '('+ posts.length +')';
+    searchbar.addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log(document.querySelector('.searchbar input').value);
+        let query = document.querySelector('.searchbar input').value;
+        let count = posts.length;
+        query = query.toLowerCase();
+        posts.forEach((element, index) => {
+            element.style.display = 'block';
+            if(!element.querySelector('h3').innerText.toLowerCase().includes(query)) {
+                element.style.display = 'none';
+                count--;
+            }
+        });
+
+        document.querySelector('.search-result > h2 > span').innerText = '('+ count +')';
+    })
 }

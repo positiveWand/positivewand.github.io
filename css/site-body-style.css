@@ -90,6 +90,7 @@
 .post-content {
     width: 700px;
     border-right: 2px solid rgb(242,242, 242);
+    padding-right: 1rem;
 }
 
 .page-title {
@@ -218,6 +219,58 @@
     background: rgba(75,185,236, 0.4);
 }
 
+.category-structure-list {
+    padding: 0;
+}
+.category-structure-list, .category-structure-list ul {
+    list-style: none;
+}
+.category-structure-list li {
+    position: relative;
+    background-color: white;
+    margin: 0;
+}
+.category-structure-list li:before {
+    background: black;
+    width: 2px;
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 1rem;
+    left: 24px;
+}
+.category-structure-list li:first-child:before {
+    top: 2rem;
+}
+.category-structure-list li:last-child:before {
+    background-color: transparent;
+}
+.category-structure-list > li:before {
+    background-color: black !important;
+}
+.category-structure-list li::marker {
+    content: '━';
+}
+.category-structure-list > li::marker {
+    content: '';
+}
+.category-structure-list a {
+    display: block;
+    color: black;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 3px 6px;
+}
+.category-structure-list a:hover {
+    color: rgb(59,129,237);
+    background: rgba(75,185,236, 0.2);
+}
+.category-structure-list a:active {
+    background: rgba(75,185,236, 0.4);
+}
+
 .content-list {
     list-style: none;
     margin: 0;
@@ -287,4 +340,39 @@
 }
 .content-list-navbar-current button {
     background: rgba(100, 100, 100, 0.2);
+}
+
+.searchbar {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 2rem;
+}
+.searchbar > img {
+    height: 2rem;
+}
+.searchbar > input[type='search'] {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    width: 50%;
+
+    font-size: 1.5rem;
+
+    border-radius: 5px;
+}
+.searchbar > button {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+
+    font-size: 1.2rem;
+}
+.search-result h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+.search-result span {
+    color: rgba(100, 100, 100, 0.6);
 }

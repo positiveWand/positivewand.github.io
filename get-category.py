@@ -12,13 +12,15 @@ exclude_rule = {
         'script',
         'category',
         'tag',
-        'about'
+        'about',
+        'category',
+        'search'
     ]
 }
 
 category_tree = [
     {
-        'name': 'home',
+        'name': 'Home',
         'subcategory': [],
     }
 ]
@@ -58,7 +60,7 @@ def scanDir(targetDir, path):
 
             scan_queue.append(aItem.name)
             if path == '.':
-                category_tree[index_of_name(category_tree, "home")]["subcategory"].append(aItem.name)
+                category_tree[index_of_name(category_tree, "Home")]["subcategory"].append(aItem.name)
             else:
                 category_tree[index_of_name(category_tree, targetDir)]["subcategory"].append(aItem.name)
     # if len(scan_queue) != 0:

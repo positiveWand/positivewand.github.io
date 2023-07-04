@@ -1,0 +1,13 @@
+<li>
+    <span>
+        <a href="{{ include.path }}">{{ include.category_name }}</a>
+    </span>
+    {% assign subcategories = site.data.category_structure | where: 'name', include.category_name | first %}
+    {% assign subcategories = subcategories.subcategory %}
+    <ul>
+        {% for aSubcategory in subcategories %}
+            {% assign newPath = include.path | append: aSubcategory | append: '/' %}
+            {% include category-structure-item.html category_name=aSubcategory path=newPath %}
+        {% endfor %}
+    </ul>
+</li>
