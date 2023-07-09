@@ -234,7 +234,7 @@
 }
 .category-structure-list li:before {
     background: black;
-    width: 2px;
+    width: 1px;
     content: '';
     position: absolute;
     top: 25px;
@@ -360,16 +360,24 @@
     padding: 0.5rem;
     width: 50%;
 
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 
     border-radius: 5px;
+    border: 2px solid rgba(100, 100, 100, 0.5);
 }
 .searchbar > button {
     margin-left: 1rem;
     padding: 0.5rem;
     border-radius: 5px;
+    border: 2px solid rgba(100, 100, 100, 0.5);
 
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+.searchbar > button:hover {
+    background: rgb(220, 220, 220);
+}
+.searchbar > button:active {
+    background: rgb(180, 180, 180);
 }
 .search-result h2 {
     margin: 0;
