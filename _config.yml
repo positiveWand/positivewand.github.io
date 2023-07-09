@@ -31,6 +31,8 @@ github_username:  positiveWand
 permalink: /:categories/:title
 
 # Build settings
+exclude:
+  - README.md
 markdown: kramdown
 theme: minima
 plugins:
