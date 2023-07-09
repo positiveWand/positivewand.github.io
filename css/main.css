@@ -1,7 +1,10 @@
 @import 'native.css';
 
 html {
-    font-family: 'Noto Sans KR';
+    /* font-family: 'Noto Sans KR'; */
+    /* font-family: 'Nanum Gothic'; */
+    /* font-family: 'NanumSquareNeo'; */
+    font-family: 'NanumSquare';
 }
 body {
     margin: 0;
