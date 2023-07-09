@@ -25,13 +25,13 @@ layout: default
             <button type="submit">검색</button>
         </form>
         <div class="search-result">
-            <h2 class="pt-2 pb-1">검색 결과 <span></span></h2>
+            <h2 class="pt-4 pb-2">검색 결과 <span></span></h2>
             <ol class="content-list">
                 {% for aPost in site.posts %}
                     <li>
-                        <ol class="path-list">
+                        <ol class="path-list mb-1">
                             {% assign path = "/" %}
-                            {% assign categoryPath = aPost.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+                            {% assign categoryPath = aPost.categories | join: '|' | prepend: 'Home|' | split: '|' %}
                             {% for aCat in  categoryPath %}
                                 <li>
                                     {% if forloop.first == false %}

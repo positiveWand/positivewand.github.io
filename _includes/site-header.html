@@ -10,7 +10,7 @@
             {% if layout.site_layout == 'post' %}
                 <ol class="path-list">
                     {% assign path = "/" %}
-                    {% assign categoryPath = page.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+                    {% assign categoryPath = page.categories | join: '|' | prepend: 'Home|' | split: '|' %}
                     {% for aCat in  categoryPath %}
                         <li>
                             {% if forloop.first == false %}
@@ -45,7 +45,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/about/">About</a></li>
                 <li><a href="/category/">Category</a></li>
-                <li><a href="/tag/">Tags</a></li>
+                <li><a href="/tag/">Tag</a></li>
                 <li><a href="/search/">Search</a></li>
             </ul>
             <button class="header-hamburger">

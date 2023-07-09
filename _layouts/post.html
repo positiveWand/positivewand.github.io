@@ -4,10 +4,10 @@ site_layout: post
 ---
 
 <article class="page-content post-page-content">
-    <header class="page-content-header pb-1">
+    <header class="page-content-header pb-2">
         <ol class="path-list">
             {% assign path = "/" %}
-            {% assign categoryPath = page.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+            {% assign categoryPath = page.categories | join: '|' | prepend: 'Home|' | split: '|' %}
             {% for aCat in  categoryPath %}
                 <li>
                     {% if forloop.first == false %}

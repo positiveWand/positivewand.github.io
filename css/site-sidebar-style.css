@@ -170,7 +170,7 @@
 }
 .sidebar-nav-selected {
     border-radius: 5px;
-    background: rgba(168, 168, 168, 0.3);
+    background: rgba(168, 168, 168, 0.2);
     color: rgba(75,185,236, 1);
     font-weight: bold;
 }

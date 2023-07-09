@@ -13,7 +13,8 @@ def extract_tags(doc):
         yaml_object = yaml.load(yaml_string, Loader=yaml.Loader)
 
         if 'tags' in yaml_object:
-            return yaml_object['tags'].split(' ')
+            if yaml_object['tags'] != None:
+                return yaml_object['tags'].split(' ')
         
     return []
 

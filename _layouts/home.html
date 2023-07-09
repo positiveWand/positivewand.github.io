@@ -6,7 +6,7 @@ site_layout: home
     <header class="page-content-header pb-1">
         <ol class="path-list">
             {% assign path = "/" %}
-            {% assign categoryPath = page.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+            {% assign categoryPath = page.categories | join: '|' | prepend: 'Home|' | split: '|' %}
             {% for aCat in  categoryPath %}
                 <li>
                     {% if forloop.first == false %}
@@ -44,13 +44,13 @@ site_layout: home
         {% endif %}
     </header>
     <div class="page-content-body">
-        <h2 class="page-content-body-title pt-2 pb-1">전체 포스트 <span>({{ site.posts | size }})</span></h2>
+        <h2 class="page-content-body-title pt-4 pb-2">전체 포스트 <span>({{ site.posts | size }})</span></h2>
         <ol class="content-list">
             {% for aPost in site.posts %}
                 <li style="display: none;">
-                    <ol class="path-list">
+                    <ol class="path-list mb-1">
                         {% assign path = "/" %}
-                        {% assign categoryPath = aPost.categories | join: ' ' | prepend: 'Home ' | split: ' ' %}
+                        {% assign categoryPath = aPost.categories | join: '|' | prepend: 'Home|' | split: '|' %}
                         {% for aCat in  categoryPath %}
                             <li>
                                 {% if forloop.first == false %}

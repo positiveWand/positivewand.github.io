@@ -2,16 +2,7 @@
 layout: about
 title: About
 ---
+블로그를 운영하는 이유?
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+- 대학 4년 재학하는 동안 배운 내용들을 정리
+- 내가 알았다면 좋았을 것 같다고 느낀 것들을 사람들과 공유

@@ -31,6 +31,7 @@ github_username:  positiveWand
 permalink: /:categories/:title
 
 # Build settings
+markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed

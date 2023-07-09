@@ -2,29 +2,33 @@
     scroll-margin-top: 6rem;
 }
 
+.markdown-content {
+    line-height: 1.7;
+}
+
 .markdown-content h1 {
     font-size: 40px;
     margin-top: 32px;
     margin-bottom: 4px;
 }
 .markdown-content h2 {
-    font-size: 34px;
-    margin-top: 28px;
+    font-size: 32px;
+    margin-top: 24px;
     margin-bottom: 2px;
 }
 .markdown-content h3 {
-    font-size: 28px;
-    margin-top: 20px;
+    font-size: 26px;
+    margin-top: 18px;
     margin-bottom: 1px;
 }
 .markdown-content h4 {
-    font-size: 24px;
-    margin-top: 16px;
+    font-size: 22px;
+    margin-top: 14px;
     margin-bottom: 0;
 }
 .markdown-content h5 {
-    font-size: 20px;
-    margin-top: 12px;
+    font-size: 18px;
+    margin-top: 10px;
     margin-bottom: 0;
 }
 .markdown-content h6 {
@@ -35,7 +39,8 @@
 
 .markdown-content blockquote {
     background: rgb(240, 240, 240);
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
     border: 1px solid rgb(200, 200, 200);
     border-left: 10px solid rgba(75,185,236,1);
     border-radius: 3px;
@@ -59,12 +64,32 @@
     text-decoration: underline;
 }
 
-.markdown-content div.highlight {
+.markdown-content pre {
     border-radius: 3px;
     background-color: rgb(240, 240, 240);
     padding: 1rem;
 }
-.markdown-content div.highlight span {
+.markdown-content pre span {
     font-family: "Source Code Pro";
     font-size: 85%;
+}
+
+.markdown-content table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-collapse: collapse;
+}
+.markdown-content th {
+    background-color: rgba(75,185,236,0.6);
+}
+.markdown-content th, td {
+    border: 1px solid rgb(200, 200, 200);
+
+    padding: 0.5rem 1rem;
+}
+
+.markdown-content ol, .markdown-content ul {
+    padding-left: 1.5rem;
 }

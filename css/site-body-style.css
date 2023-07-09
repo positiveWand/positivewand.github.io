@@ -43,7 +43,7 @@
     top: 6rem;
 
     flex-grow: 1;
-    min-width: 280px;
+    width: 300px;
     margin-left: 1rem;
 }
 .post-content-nav h2 {
@@ -91,6 +91,8 @@
     width: 700px;
     border-right: 2px solid rgb(242,242, 242);
     padding-right: 1rem;
+
+    padding-bottom: 5rem;
 }
 
 .page-title {
@@ -148,7 +150,7 @@
     background-color: rgba(75,185,236,0.4);
 }
 .path-list li::after {
-    content: "/";
+    content: ">";
     margin: 0 5px;
 }
 .path-list li:last-child::after {
@@ -235,8 +237,8 @@
     width: 2px;
     content: '';
     position: absolute;
-    top: 0px;
-    bottom: 1rem;
+    top: 25px;
+    bottom: 13px;
     left: 24px;
 }
 .category-structure-list li:first-child:before {
