@@ -39,6 +39,8 @@ jobs:
           python-version: '3.10'
       - name: Preprocessing categories & tags
         run: python deploy.py
+      - name: Add Platform to Gemfile.lock
+        run: bundle lock --add-platform x86_64-linux
       - name: Setup Ruby
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
