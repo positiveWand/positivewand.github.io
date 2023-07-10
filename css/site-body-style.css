@@ -107,6 +107,7 @@
     .post-content-body {
         display: flex;
         flex-direction: column-reverse;
+        justify-content: flex-end;
         width: 100%;
     }
     .post-content-nav {

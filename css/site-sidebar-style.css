@@ -146,9 +146,12 @@
     content: url(/assets/right-arrow.png);
     position: relative;
     top: 2px;
+
+    display: inline-block;
+    transition: all 0.1s ease;
 }
 .sidebar-nav details[open] > summary::before {
-    content: url(/assets/down-arrow.png);
+    transform: translate(-3px, -2px) rotate(90deg);
 }
 
 .sidebar-nav summary, .sidebar-nav li > a {

@@ -33,11 +33,15 @@ permalink: /:categories/:title
 # Build settings
 exclude:
   - README.md
-markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
 
+# kramdown:
+#   syntax_highlighter: rouge
+#   syntax_highlighter_opts:
+#     block:
+#       line_numbers: table
 # defaults
 
 # Exclude from processing.

@@ -68,10 +68,12 @@
     border-radius: 3px;
     background-color: rgb(240, 240, 240);
     padding: 1rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
 }
-.markdown-content pre span {
-    font-family: "Source Code Pro";
-    font-size: 85%;
+.markdown-content pre span, .markdown-content pre code {
+    font-family: 'NanumGothicCoding';
+    font-size: 95%;
 }
 
 .markdown-content table {
