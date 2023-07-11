@@ -171,7 +171,7 @@
     flex-wrap: wrap;
 
     list-style: none;
-    margin: 0.5rem 0 0 0;
+    margin: 0;
     padding: 0;
 
     font-size: 1rem;
@@ -182,7 +182,6 @@
 
     padding: 3px 6px;
     margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
 }
 .tag-list li:hover {
     opacity: 50%;
@@ -293,12 +292,10 @@
 .content-list > li:last-child {
     border-bottom: 0;
 }
-.content-list h3 {
+.content-list li h3 {
     font-size: 1.5rem;
-    display: inline;
 }
 .content-list-item-date {
-    margin-left: 0.5rem;
     color: gray;
 }
 

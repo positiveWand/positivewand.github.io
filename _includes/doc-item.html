@@ -1,0 +1,30 @@
+<li style="display: none;">
+    <ol class="path-list mb-1">
+        {% assign path = "/" %}
+        {% assign categoryPath = include.doc.categories | join: '|' | prepend: 'Home|' | split: '|' %}
+        {% for aCat in  categoryPath %}
+            <li>
+                {% if forloop.first == false %}
+                    {% assign path = path | append: aCat | append: '/' %}
+                {% endif %}
+                <a href="{{ path }}">
+                    {{ aCat }}
+                </a>
+            </li>
+        {% endfor %}
+    </ol>
+    <a href="{{ include.doc.url }}">
+        <h3 class="mt-1 mb-0">{{ include.doc.title }}</h3>
+        <div class="content-list-item-date mt-1">{{ include.doc.date | date: "%Y-%m-%d" }}</div>
+        <p class="mb-0 mt-1">
+            {{ include.doc.excerpt | strip_html | truncatewords: 30 }}
+        </p>
+    </a>
+    {% if include.doc.tags != empty %}
+        <ul class="tag-list mt-1">
+            {% for aTag in include.doc.tags %}
+                <li><a href="/tag/{{ aTag }}/">{{ aTag }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

@@ -45,46 +45,7 @@ site_layout: home
     </header>
     <div class="page-content-body">
         <h2 class="page-content-body-title pt-4 pb-2">전체 포스트 <span>({{ site.posts | size }})</span></h2>
-        <ol class="content-list">
-            {% for aPost in site.posts %}
-                <li style="display: none;">
-                    <ol class="path-list mb-1">
-                        {% assign path = "/" %}
-                        {% assign categoryPath = aPost.categories | join: '|' | prepend: 'Home|' | split: '|' %}
-                        {% for aCat in  categoryPath %}
-                            <li>
-                                {% if forloop.first == false %}
-                                    {% assign path = path | append: aCat | append: '/' %}
-                                {% endif %}
-                                <a href="{{ path }}">
-                                    {{ aCat }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                    <a href="{{ aPost.url }}">
-                        <div>
-                            <h3>{{ aPost.title }}</h3>
-                            <span class="content-list-item-date">{{ aPost.date | date: "%Y-%m-%d" }}</span>
-                        </div>
-                        <p>
-                            {{ aPost.excerpt | strip_html | truncatewords: 30 }}
-                        </p>
-                        <ul class="tag-list">
-                            {% for aTag in aPost.tags %}
-                                <li><a href="/tag/{{ aTag }}/">{{ aTag }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </a>
-                </li>
-            {% endfor %}
-            {% assign count = site.posts | size %}
-            {% if count == 0 %}
-                <li>
-                    해당하는 검색결과가 존재하지 않습니다.
-                </li>
-            {% endif %}
-        </ol>
+        {% include doc-list.html docs=site.posts %}
         <div class="content-list-navbar">
         </div>
     </div>

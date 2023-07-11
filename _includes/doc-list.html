@@ -1,0 +1,11 @@
+<ol class="content-list">
+    {% for aPost in include.docs %}
+        {% include doc-item.html doc=aPost %}
+    {% endfor %}
+    {% assign count = site.posts | size %}
+    {% if count == 0 %}
+        <li>
+            해당하는 검색결과가 존재하지 않습니다.
+        </li>
+    {% endif %}
+</ol>
