@@ -25,3 +25,8 @@ body {
 ::-webkit-scrollbar-track {
     background: lightgray;  /*스크롤바 뒷 배경 색상*/
 }
+
+::selection {
+    background-color: rgb(55, 185, 216);
+    color: white;
+}
