@@ -137,6 +137,10 @@
     .header-content-info {
         display: none;
     }
+
+    .header-logo-container {
+        flex-basis: 12rem;
+    }       
 }
 @media (max-width: 60rem) {
     .header-nav > ul {
