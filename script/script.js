@@ -278,6 +278,10 @@ if (document.querySelector('.post-content-nav')) {
 if (document.querySelector('.searchbar')) {
     const searchbar = document.querySelector('.searchbar');
     const posts = Array.from(document.querySelectorAll('.content-list > li'));
+
+    posts.forEach((element) => {
+        element.style.removeProperty("display");
+    });
     document.querySelector('.search-result > h2 > span').innerText = '('+ posts.length +')';
     searchbar.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -294,5 +298,5 @@ if (document.querySelector('.searchbar')) {
         });
 
         document.querySelector('.search-result > h2 > span').innerText = '('+ count +')';
-    })
+    });
 }

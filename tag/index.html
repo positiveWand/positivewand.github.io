@@ -27,7 +27,7 @@ layout: default
         <h2 class="page-content-body-title pt-2 pb-1">전체 태그 <span>({{ site.data.tags | size }})</span></h2>
         <ul class="tag-list">
             {% for aTag in site.data.tags %}
-                <li>
+                <li class="mb-1">
                     <a href="{{ '/tag/' | append: aTag | append: '/' }}">
                         {{ aTag }}
                     </a>
