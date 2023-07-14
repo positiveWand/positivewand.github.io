@@ -78,6 +78,16 @@
     font-size: 95%;
 }
 
+.markdown-content code:not(.markdown-content pre code) {
+    font-family: 'NanumGothicCoding';
+    font-size: 95%;
+    background-color: rgb(240, 240, 240);
+    border-radius: 3px;
+
+    padding: 2px 4px;
+    color: red;
+}
+
 .markdown-content table {
     text-align: center;
     margin-left: auto;

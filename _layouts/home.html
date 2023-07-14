@@ -38,7 +38,7 @@ site_layout: home
         </details>
         {% assign introduction = site.data.category_introduction | where: 'name', 'home' %}
         {% if introduction[0] %}
-            <p>
+            <p class="mb-1">
                 {{ introduction[0].introduction }}
             </p>
         {% endif %}

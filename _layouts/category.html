@@ -39,7 +39,7 @@ layout: default
         </details>
         {% assign introduction = site.data.category_introduction | where: 'name', category_name %}
         {% if introduction[0] %}
-            <p>
+            <p class="mb-1">
                 {{ introduction[0].introduction }}
             </p>
         {% endif %}
