@@ -20,13 +20,13 @@ site_layout: post
             {% endfor %}
         </ol>
         <h1 class="post-title">{{ page.title }}</h1>
-        <div class="correlated-time">
+        <div class="correlated-time mt-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="#666" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"></path></svg>
             <span>{{ page.date | date: "%Y-%m-%d"}}</span>
         </div>
         <ul class="tag-list">
             {% for aTag in page.tags %}
-                <li><a href="/tag/{{ aTag }}/">{{ aTag }}</a></li>
+                <li class="mt-1"><a href="/tag/{{ aTag }}/">{{ aTag }}</a></li>
             {% endfor %}
         </ul>
     </header>

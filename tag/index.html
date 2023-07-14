@@ -25,7 +25,7 @@ layout: default
     </header>
     <div class="page-content-body">
         <h2 class="page-content-body-title pt-2 pb-1">전체 태그 <span>({{ site.data.tags | size }})</span></h2>
-        <ul class="tag-list">
+        <ul class="tag-list mt-2">
             {% for aTag in site.data.tags %}
                 <li class="mb-1">
                     <a href="{{ '/tag/' | append: aTag | append: '/' }}">
