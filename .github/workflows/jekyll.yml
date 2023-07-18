@@ -16,7 +16,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -38,7 +38,7 @@ jobs:
         with:
           python-version: '3.10'
       - name: Preprocessing categories & tags
-        run: python deploy.py
+        run: sudo python deploy.py
       - name: Setup Ruby
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
