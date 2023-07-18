@@ -1,3 +1,3 @@
 conda activate base
-python ./deploy.py
+python ./deploy.py -test
 jekyll serve

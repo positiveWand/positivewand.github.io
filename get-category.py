@@ -1,21 +1,35 @@
+import sys
 import os
 import yaml
+
+blacklist = [
+    'assets',
+    'css',
+    'script',
+    'category',
+    'tag',
+    'about',
+    'category',
+    'search'
+]
+testlist = [
+    '카테고리 테스트',
+    '포스트 테스트'
+]
+
+test = False
+if len(sys.argv) >= 2:
+    if sys.argv[1] == '-t' or sys.argv[1] == '-test':
+        test = True
+if not test:
+    blacklist = blacklist + testlist
 
 exclude_rule = {
     'startswith': [
         '.',
         '_'
     ],
-    'blacklist': [
-        'assets',
-        'css',
-        'script',
-        'category',
-        'tag',
-        'about',
-        'category',
-        'search'
-    ]
+    'blacklist': blacklist
 }
 
 category_tree = [
