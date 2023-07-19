@@ -4,7 +4,7 @@ site_layout: home
 ---
 <article class="page-content">
     <header class="page-content-header pb-1">
-        <ol class="path-list">
+        <ol class="path-list mb-1">
             {% assign path = "/" %}
             {% assign categoryPath = page.categories | join: '|' | prepend: 'Home|' | split: '|' %}
             {% for aCat in  categoryPath %}

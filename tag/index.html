@@ -1,10 +1,11 @@
 ---
 title: "태그: 전체"
 layout: default
+type: tag
 ---
 <article class="page-content">
     <header class="page-content-header pb-1">
-        <ol class="path-list">
+        <ol class="path-list mb-1">
             {% assign path = "/" %}
             {% assign categoryPath = page.url | url_decode | prepend: '/Home ' | split: '/' %}
             {% for aCat in  categoryPath offset:1 %}
@@ -24,8 +25,8 @@ layout: default
         </p>
     </header>
     <div class="page-content-body">
-        <h2 class="page-content-body-title pt-2 pb-1">전체 태그 <span>({{ site.data.tags | size }})</span></h2>
-        <ul class="tag-list mt-2">
+        <h2 class="page-content-body-title pt-4 pb-2">전체 태그 <span>({{ site.data.tags | size }})</span></h2>
+        <ul class="tag-list">
             {% for aTag in site.data.tags %}
                 <li class="mb-1">
                     <a href="{{ '/tag/' | append: aTag | append: '/' }}">
@@ -35,9 +36,7 @@ layout: default
             {% endfor %}
             {% assign count = site.data.tags | size %}
             {% if count == 0 %}
-                <li>
-                    해당하는 검색결과가 존재하지 않습니다.
-                </li>
+                태그가 존재하지 않습니다.
             {% endif %}
         </ul>
     </div>

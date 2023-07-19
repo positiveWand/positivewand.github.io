@@ -1,5 +1,17 @@
 - name: Home
   subcategory:
   - 정보의 표현
+  - 카테고리 테스트
+  - 포스트 테스트
 - name: 정보의 표현
+  subcategory: []
+- name: 카테고리 테스트
+  subcategory:
+  - 서브 카테고리1
+  - 서브 카테고리2
+- name: 서브 카테고리1
+  subcategory: []
+- name: 서브 카테고리2
+  subcategory: []
+- name: 포스트 테스트
   subcategory: []

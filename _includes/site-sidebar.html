@@ -7,11 +7,11 @@
             </button>
         </header>
         <ul class="sidebar-top-nav">
-            <li class="{% if layout.site_layout == 'home' %}sidebar-nav-selected{% endif %}"><a href="/">Home</a></li>
-            <li class="{% if layout.site_layout == 'about' %}sidebar-nav-selected{% endif %}"><a href="/about">About</a></li>
-            <li class="{% if layout.site_layout == 'categorymain' %}sidebar-nav-selected{% endif %}"><a href="/category">Category</a></li>
-            <li class="{% if layout.site_layout == 'tagmain' %}sidebar-nav-selected{% endif %}"><a href="/tag">Tags</a></li>
-            <li class="{% if layout.site_layout == 'search' %}sidebar-nav-selected{% endif %}"><a href="/search">Search</a></li>
+            <li class="{% if page.type == 'home' %}sidebar-nav-selected{% endif %}"><a href="/">Home</a></li>
+            <li class="{% if page.type == 'about' %}sidebar-nav-selected{% endif %}"><a href="/about">About</a></li>
+            <li class="{% if page.type == 'category' %}sidebar-nav-selected{% endif %}"><a href="/category">Category</a></li>
+            <li class="{% if page.type == 'tag' %}sidebar-nav-selected{% endif %}"><a href="/tag">Tags</a></li>
+            <li class="{% if page.type == 'search' %}sidebar-nav-selected{% endif %}"><a href="/search">Search</a></li>
         </ul>
         <ul class="sidebar-nav">
             {% assign categories = site.data.category_structure | where: 'name', 'Home' | first %}
