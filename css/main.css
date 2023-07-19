@@ -1,11 +1,22 @@
 @import 'native.css';
 
+@font-face {
+    font-family: 'NanumSquare';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.ttf) format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumGothicCoding';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumGothicCoding/D2Coding.eot);
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumGothicCoding/D2Coding.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumGothicCoding/D2Coding.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumGothicCoding/D2Coding.ttf) format("truetype");
+    font-display: swap;
+}
 html {
     /* font-family: 'Noto Sans KR'; */
     /* font-family: 'Nanum Gothic'; */
     /* font-family: 'NanumSquareNeo'; */
     font-family: 'NanumSquare';
-    font-display: swap;
 }
 body {
     margin: 0;
