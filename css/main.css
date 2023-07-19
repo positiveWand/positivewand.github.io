@@ -5,6 +5,7 @@ html {
     /* font-family: 'Nanum Gothic'; */
     /* font-family: 'NanumSquareNeo'; */
     font-family: 'NanumSquare';
+    font-display: swap;
 }
 body {
     margin: 0;
