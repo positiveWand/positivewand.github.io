@@ -23,8 +23,16 @@ body {
 
     display: flex;
     flex-direction: column;
+    background-color: white;
     color: black;
-    background: white;
+}
+body.light {
+    background-color: white;
+    color: black;
+}
+body.dark {
+    background-color: rgb(31, 41, 55);
+    color: white;
 }
 
 ::-webkit-scrollbar {

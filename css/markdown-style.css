@@ -44,6 +44,8 @@
     border: 1px solid rgb(200, 200, 200);
     border-left: 10px solid rgba(75,185,236,1);
     border-radius: 3px;
+
+    color: black;
 }
 
 .markdown-content a {
@@ -72,6 +74,8 @@
     flex-shrink: 0;
     flex-basis: 640px;
     white-space: pre-wrap;
+
+    color: black;
 }
 .markdown-content pre span, .markdown-content pre code {
     font-family: 'NanumGothicCoding';

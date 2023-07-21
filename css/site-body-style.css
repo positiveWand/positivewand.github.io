@@ -17,7 +17,7 @@
     display: inline-flex;
     flex-direction: column;
 
-    border-bottom: 2px solid rgb(220,220,220);
+    border-bottom: 2px solid gray;
 }
 .page-content-body {
     flex-basis: calc(100vh - 6rem);
@@ -65,7 +65,7 @@
 .post-content-nav a {
     display: block;
     text-decoration: none;
-    color: gray;
+    color: rgb(150,150,150);
     width: 100%;
 
     border-radius: 5px;
@@ -90,7 +90,7 @@
 }
 .post-content {
     width: 700px;
-    border-right: 2px solid rgb(240,240,240);
+    border-right: 2px solid rgb(150,150,150);
     padding-right: 1rem;
 
     padding-bottom: 5rem;
@@ -142,7 +142,7 @@
     text-decoration: none;
     padding: 3px 6px;
     border-radius: 5px;
-    color: gray;
+    color: rgb(150,150,150);
 }
 .path-list a:hover {
     background-color: rgba(75,185,236,0.2);
@@ -164,7 +164,7 @@
 }
 .correlated-time span {
     margin-left: 0.3rem;
-    color: gray;
+    color: rgb(150,150,150);
 }
 
 .tag-list {
@@ -208,7 +208,7 @@
 }
 .sub-categories a {
     display: block;
-    color: black;
+    color: inherit;
     text-decoration: none;
     border-radius: 5px;
     padding: 3px 6px;
@@ -229,7 +229,6 @@
 }
 .category-structure-list li {
     position: relative;
-    background-color: white;
     margin: 0;
 }
 .category-structure-list li:before {
@@ -250,6 +249,9 @@
 .category-structure-list > li:before {
     background-color: black !important;
 }
+.category-structure-list > li:before {
+    background-color: black !important;
+}
 .category-structure-list li::marker {
     content: '━';
 }
@@ -258,7 +260,7 @@
 }
 .category-structure-list a {
     display: block;
-    color: black;
+    color: inherit;
     font-weight: bold;
     font-size: 1.3rem;
     text-decoration: none;
@@ -280,13 +282,13 @@
 }
 .content-list > li > a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 .content-list > li > a:hover {
     color: rgb(59,129,237);
 }
 .content-list > li {
-    border-bottom: 2px solid rgb(220,220,220);
+    border-bottom: 2px solid gray;
 
     padding: 1rem 0;
 }
@@ -297,7 +299,7 @@
     font-size: 1.5rem;
 }
 .content-list-item-date {
-    color: gray;
+    color: rgb(150,150,150);
 }
 
 .content-list-navbar {
@@ -321,13 +323,19 @@
 
     font-weight: bold;
     cursor: pointer;
+
+    color: inherit;
 }
 .content-list-navbar button:hover {
-    background: black;
+    background: rgb(59,129,237);
+    color: white;
+}
+.content-list-navbar button:hover {
+    background: rgb(59,129,237);
     color: white;
 }
 .content-list-navbar button:disabled {
-    color: lightgray;
+    color: rgb(200, 200, 200);
     cursor: auto;
 }
 .content-list-navbar button:disabled:hover {
@@ -337,7 +345,7 @@
     border: 0;
 }
 .content-list-navbar-current button {
-    background: rgba(100, 100, 100, 0.2);
+    background: rgb(220, 220, 220);
 }
 
 .searchbar {
@@ -362,7 +370,7 @@
     font-size: 20px;
 
     border-radius: 10px 0 0 10px;
-    border: 1px solid rgb(220,220,220);
+    border: 1px solid gray;
     border-right: none;
 }
 .searchbar button {
@@ -370,18 +378,15 @@
     height: 45px;
     width: 45px;
     border-radius: 0 10px 10px 0;
-    border: 1px solid rgb(220,220,220);
-    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid gray;
+    background: rgb(75,185,236);
 
     cursor: pointer;
 
     font-size: 1rem;
 }
 .searchbar button:hover {
-    background: rgba(0, 0, 0, 0.3);
-}
-.searchbar button:active {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgb(53, 148, 192);
 }
 .search-result h2 {
     margin: 0;
