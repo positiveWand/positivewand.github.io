@@ -240,6 +240,9 @@
     bottom: 13px;
     left: 24px;
 }
+body.dark .category-structure-list li:before {
+    background: white; 
+}
 .category-structure-list li:first-child:before {
     top: 2rem;
 }
@@ -249,8 +252,8 @@
 .category-structure-list > li:before {
     background-color: black !important;
 }
-.category-structure-list > li:before {
-    background-color: black !important;
+body.dark .category-structure-list > li:before {
+    background-color: white !important;
 }
 .category-structure-list li::marker {
     content: '━';
