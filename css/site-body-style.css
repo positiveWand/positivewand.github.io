@@ -17,7 +17,7 @@
     display: inline-flex;
     flex-direction: column;
 
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgb(220,220,220);
 }
 .page-content-body {
     flex-basis: calc(100vh - 6rem);
@@ -65,7 +65,7 @@
 .post-content-nav a {
     display: block;
     text-decoration: none;
-    color: rgb(150, 150, 150);
+    color: gray;
     width: 100%;
 
     border-radius: 5px;
@@ -90,7 +90,7 @@
 }
 .post-content {
     width: 700px;
-    border-right: 2px solid rgb(242,242, 242);
+    border-right: 2px solid rgb(240,240,240);
     padding-right: 1rem;
 
     padding-bottom: 5rem;
@@ -286,7 +286,7 @@
     color: rgb(59,129,237);
 }
 .content-list > li {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgb(220,220,220);
 
     padding: 1rem 0;
 }
@@ -326,9 +326,6 @@
     background: black;
     color: white;
 }
-.content-list-navbar button:active {
-    border: 1.5px solid black;
-}
 .content-list-navbar button:disabled {
     color: lightgray;
     cursor: auto;
@@ -365,7 +362,7 @@
     font-size: 20px;
 
     border-radius: 10px 0 0 10px;
-    border: 1px solid rgba(100, 100, 100, 0.5);
+    border: 1px solid rgb(220,220,220);
     border-right: none;
 }
 .searchbar button {
@@ -373,7 +370,7 @@
     height: 45px;
     width: 45px;
     border-radius: 0 10px 10px 0;
-    border: 1px solid rgba(100, 100, 100, 0.5);
+    border: 1px solid rgb(220,220,220);
     background: rgba(0, 0, 0, 0.15);
 
     cursor: pointer;
