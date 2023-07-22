@@ -1,3 +1,25 @@
+if(!localStorage.getItem('theme')) {
+    localStorage.setItem('theme', 'light');
+} else if (localStorage.getItem('theme') == 'light') {
+    document.querySelector('body').className = 'light';
+    let themeswitch = document.querySelector('.toggle-switch input');
+    themeswitch.checked = false;
+} else if (localStorage.getItem('theme') == 'dark') {
+    document.querySelector('body').className = 'dark';
+    let themeswitch = document.querySelector('.toggle-switch input');
+    themeswitch.checked = true;
+}
+
+document.querySelector('.toggle-switch input').addEventListener('click', (event) => {
+    if(!event.currentTarget.checked) {
+        localStorage.setItem('theme', 'light');
+        document.querySelector('body').className = 'light';
+    } else {
+        localStorage.setItem('theme', 'dark');
+        document.querySelector('body').className = 'dark';
+    }
+});
+
 // 카테고리 메뉴 통제 버튼(작은 화면)
 function htmlToElements(html) {
     var template = document.createElement('template');

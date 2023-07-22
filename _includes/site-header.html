@@ -1,10 +1,23 @@
 <header class="site-header">
     <div class="header-wrapper">
-        <div class="header-logo-container">
-            <a href="/">
-                <img src="/assets/archive.png" alt="로고 이미지">
-                <h1>Positive Arch.</h1>
-            </a>
+        <div class="header-left">
+            <div class="header-logo-container">
+                <a href="/">
+                    <img src="/assets/archive.png" alt="로고 이미지">
+                    <h1>Positive Arch.</h1>
+                </a>
+            </div>
+            <div class="toggle-switch ml-2">
+                <input type="checkbox" id="toggle" hidden> 
+                <label for="toggle">
+                    <span>Light</span>
+                    <span>Dark</span>
+                    <div class="pill">
+                        <span>Light</span>
+                        <span>Dark</span>
+                    </div>
+                </label>
+            </div>
         </div>
         <nav class="header-content-info">
             {% if layout.site_layout == 'post' %}
