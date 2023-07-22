@@ -1,5 +1,25 @@
 // 카테고리 메뉴 통제 버튼(작은 화면)
-let header_hamburger = document.querySelector(".header-hamburger img");
+function htmlToElements(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.childNodes;
+}
+
+let hamburger_svg = htmlToElements(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 64 64" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 11.328125 34.5 C 11.324219 34.5 11.324219 34.5 11.324219 34.5 C 10.488281 34.5 9.8125 33.378906 9.8125 32 C 9.8125 30.621094 10.488281 29.5 11.324219 29.5 L 52.675781 29.5 C 53.511719 29.5 54.1875 30.621094 54.1875 32 C 54.1875 33.378906 53.511719 34.5 52.675781 34.5 Z M 11.328125 34.5 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 11.328125 15.625 C 11.324219 15.625 11.324219 15.625 11.324219 15.625 C 10.488281 15.625 9.8125 14.503906 9.8125 13.125 C 9.8125 11.746094 10.488281 10.625 11.324219 10.625 L 52.675781 10.625 C 53.511719 10.625 54.1875 11.746094 54.1875 13.125 C 54.1875 14.503906 53.511719 15.625 52.675781 15.625 Z M 11.328125 15.625 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 11.328125 53.375 C 11.324219 53.375 11.324219 53.375 11.324219 53.375 C 10.488281 53.375 9.8125 52.253906 9.8125 50.875 C 9.8125 49.496094 10.488281 48.375 11.324219 48.375 L 52.675781 48.375 C 53.511719 48.375 54.1875 49.496094 54.1875 50.875 C 54.1875 52.253906 53.511719 53.375 52.675781 53.375 Z M 11.328125 53.375 "/>`)[0];
+let cross_svg = htmlToElements(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 64 64" version="1.1">
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 14.207031 10.671875 L 53.328125 49.792969 L 49.792969 53.328125 L 10.671875 14.207031 Z M 14.207031 10.671875 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 10.671875 49.792969 L 49.792969 10.671875 L 53.328125 14.207031 L 14.207031 53.328125 Z M 10.671875 49.792969 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 12.378906 9.890625 C 13.757812 9.890625 14.878906 11.011719 14.878906 12.390625 C 14.878906 13.769531 13.757812 14.890625 12.378906 14.890625 C 11 14.890625 9.878906 13.769531 9.878906 12.390625 C 9.878906 11.011719 11 9.890625 12.378906 9.890625 Z M 12.378906 9.890625 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 51.613281 9.890625 C 52.996094 9.890625 54.113281 11.011719 54.113281 12.390625 C 54.113281 13.769531 52.996094 14.890625 51.613281 14.890625 C 50.234375 14.890625 49.113281 13.769531 49.113281 12.390625 C 49.113281 11.011719 50.234375 9.890625 51.613281 9.890625 Z M 51.613281 9.890625 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 12.378906 49.152344 C 13.757812 49.152344 14.878906 50.273438 14.878906 51.652344 C 14.878906 53.03125 13.757812 54.152344 12.378906 54.152344 C 11 54.152344 9.878906 53.03125 9.878906 51.652344 C 9.878906 50.273438 11 49.152344 12.378906 49.152344 Z M 12.378906 49.152344 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;" d="M 51.613281 49.152344 C 52.996094 49.152344 54.113281 50.273438 54.113281 51.652344 C 54.113281 53.03125 52.996094 54.152344 51.613281 54.152344 C 50.234375 54.152344 49.113281 53.03125 49.113281 51.652344 C 49.113281 50.273438 50.234375 49.152344 51.613281 49.152344 Z M 51.613281 49.152344 "/>
+</svg>`)[0];
+
+let header_hamburger = document.querySelector(".header-hamburger");
 header_hamburger.addEventListener("click", (event) => {
     let category_flag;
     if(window.getComputedStyle(document.querySelector(".sidebar-wrapper")).display == "none") {
@@ -9,10 +29,12 @@ header_hamburger.addEventListener("click", (event) => {
     }
 
     if(!category_flag) {
-        event.target.src = "/assets/cross.svg";
+        document.querySelector(".header-hamburger svg").remove();
+        event.currentTarget.appendChild(cross_svg);
         document.querySelector(".sidebar-wrapper").style.display = "block";
     } else {
-        event.target.src = "/assets/hamburger.svg";
+        document.querySelector(".header-hamburger svg").remove();
+        event.currentTarget.appendChild(hamburger_svg);
         document.querySelector(".sidebar-wrapper").style.removeProperty("display");
     }
 });

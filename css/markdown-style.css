@@ -47,6 +47,10 @@
 
     color: black;
 }
+body.dark .markdown-content blockquote {
+    background-color: rgb(75 85 99);
+    color: white;
+}
 
 .markdown-content a {
     color: #007bff;
@@ -64,8 +68,13 @@
     border-radius: 3px;
     background-color: rgb(240, 240, 240);
     border: 1px solid rgb(200, 200, 200);
+    color: black;
 
     margin: 1rem 0;
+}
+body.dark .markdown-content div.highlight {
+    background-color: rgb(17 24 39);
+    color: white;
 }
 .markdown-content pre {
     margin: 0 auto;
@@ -75,7 +84,7 @@
     flex-basis: 640px;
     white-space: pre-wrap;
 
-    color: black;
+    color: inherit;
 }
 .markdown-content pre span, .markdown-content pre code {
     font-family: 'NanumGothicCoding';
@@ -91,6 +100,11 @@
     padding: 2px 4px;
     color: red;
 }
+body.dark .markdown-content code:not(.markdown-content pre code) {
+    background-color: rgb(75 85 99);
+    color: rgb(255, 136, 136);
+}
+
 
 .markdown-content table {
     text-align: center;

@@ -5,10 +5,14 @@
 .sidebar-wrapper {
     width: 325px;
 
-    border-right: 2px solid gray;
-    background-color: inherit;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgb(248 250 252);
 
     font-size: 1rem;
+}
+body.dark .sidebar-wrapper {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgb(17 24 39);
 }
 .sidebar {
     position: sticky;
@@ -21,15 +25,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid gray;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+body.dark .sidebar-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .sidebar-header h2 {
     margin-left: 1rem;
 }
-.sidebar-header img {
+.sidebar-header svg {
     width: 1.5rem;
     height: 1.5rem;
     padding: 0.2rem;
+}
+body.dark .sidebar-header svg {
+    fill: white;
 }
 .sidebar-header button {
     border-radius: 5px;
@@ -53,9 +63,12 @@
     padding-right: 0.5rem;
     padding-bottom: 0.5rem;
 
-    border-bottom: 2px solid gray;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
     display: none;
+}
+body.dark .sidebar-top-nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .sidebar-top-nav li {
     margin-top: 0.5rem;
@@ -94,10 +107,13 @@
 
     display: none;
 }
-.sidebar-show-btn img {
+.sidebar-show-btn svg {
     width: 1.5rem;
     height: 1.5rem;
     padding: 0.2rem;
+}
+body.dark .sidebar-show-btn svg {
+    fill: white;
 }
 .sidebar-show-btn:hover {
     background-color: rgba(75,185,236, 0.2);
@@ -143,12 +159,16 @@
 }
 .sidebar-nav summary::before {
     margin-right: 5px;
-    content: url(/assets/right-arrow.png);
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' version='1.1'%3E%3Cg id='surface1'%3E%3Cpath style=' stroke:none;fill-rule:nonzero;fill:rgb(0%25,0%25,0%25);fill-opacity:1;' d='M 6.109375 20 L 3.75 17.640625 L 11.53125 9.996094 L 3.75 2.359375 L 6.109375 0 L 16.25 9.996094 Z M 6.109375 20 '/%3E%3C/g%3E%3C/svg%3E ");
     position: relative;
-    top: 2px;
+    top: 3px;
+    right: 2px;
 
     display: inline-block;
     transition: all 0.1s ease;
+}
+body.dark .sidebar-nav summary::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' version='1.1'%3E%3Cg id='surface1'%3E%3Cpath style=' stroke:none;fill-rule:nonzero;fill:rgb(255,255,255);fill-opacity:1;' d='M 6.109375 20 L 3.75 17.640625 L 11.53125 9.996094 L 3.75 2.359375 L 6.109375 0 L 16.25 9.996094 Z M 6.109375 20 '/%3E%3C/g%3E%3C/svg%3E ");
 }
 .sidebar-nav details[open] > summary::before {
     transform: translate(-3px, -2px) rotate(90deg);

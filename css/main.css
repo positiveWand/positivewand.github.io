@@ -23,15 +23,15 @@ body {
 
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: rgb(248 250 252);
     color: black;
 }
 body.light {
-    background-color: white;
+    background-color: rgb(248 250 252);
     color: black;
 }
 body.dark {
-    background-color: rgb(31, 41, 55);
+    background-color: rgb(17 24 39);
     color: white;
 }
 
