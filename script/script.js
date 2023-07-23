@@ -1,10 +1,10 @@
-if(!localStorage.getItem('theme')) {
-    localStorage.setItem('theme', 'light');
-} else if (localStorage.getItem('theme') == 'light') {
+if(!sessionStorage.getItem('theme')) {
+    sessionStorage.setItem('theme', 'light');
+} else if (sessionStorage.getItem('theme') == 'light') {
     document.querySelector('body').className = 'light';
     let themeswitch = document.querySelector('.toggle-switch input');
     themeswitch.checked = false;
-} else if (localStorage.getItem('theme') == 'dark') {
+} else if (sessionStorage.getItem('theme') == 'dark') {
     document.querySelector('body').className = 'dark';
     let themeswitch = document.querySelector('.toggle-switch input');
     themeswitch.checked = true;
@@ -12,10 +12,10 @@ if(!localStorage.getItem('theme')) {
 
 document.querySelector('.toggle-switch input').addEventListener('click', (event) => {
     if(!event.currentTarget.checked) {
-        localStorage.setItem('theme', 'light');
+        sessionStorage.setItem('theme', 'light');
         document.querySelector('body').className = 'light';
     } else {
-        localStorage.setItem('theme', 'dark');
+        sessionStorage.setItem('theme', 'dark');
         document.querySelector('body').className = 'dark';
     }
 });
